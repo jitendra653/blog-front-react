@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSearch } from './SearchContext.tsx';
+import { useSearch } from './SearchContext';
 
 const SearchFilters: React.FC = () => {
   const { query, setQuery } = useSearch();

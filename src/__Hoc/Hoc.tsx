@@ -1,8 +1,8 @@
 import React from 'react';
-import { SearchProvider, useSearch } from './SearchContext.tsx';
-import withDataFetching from './withDataFetching.tsx';
-import DataDisplay from './DataDisplay.tsx';
-import SearchFilters from './SearchFilters.tsx';
+import { SearchProvider, useSearch } from './SearchContext';
+import withDataFetching from './withDataFetching';
+import DataDisplay from './DataDisplay';
+import SearchFilters from './SearchFilters';
 
 
 interface DataDisplayProps {

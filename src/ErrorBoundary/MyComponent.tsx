@@ -19,7 +19,7 @@ const MyComponent: React.FC = () => {
         }
         const result: Data = await response.json();
         setData(result);
-      } catch (err) {
+      } catch (err:any) {
         setError(err.message);
       } finally {
         setLoading(false);

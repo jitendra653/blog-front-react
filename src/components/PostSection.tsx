@@ -1,5 +1,5 @@
 import React from 'react';
-import Card from './Card.tsx';
+import Card from './Card';
 import { Link } from 'react-router-dom';
 
 const PostSection: React.FC = () => (

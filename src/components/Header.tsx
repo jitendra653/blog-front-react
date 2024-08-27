@@ -1,22 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import { FaBars, FaTimes } from 'react-icons/fa';
+import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
-  const [activeLink, setActiveLink] = useState(location.pathname);
-  useEffect(()=>{
-    setActiveLink(location.pathname)
-  },[])
-  
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
-  const handleLinkClick = (href: string) => {
-    setActiveLink(href);
-    if (window.innerWidth < 1024) {
-      setIsMenuOpen(false); // Close menu on link click for mobile and tablet
-    }
-  };
+ 
 
   return (
     <div className=" ">
@@ -48,10 +36,10 @@ const Header: React.FC = () => {
           </div>
           <nav className={`md:flex md:space-x-4 ${isMenuOpen ? 'block' : 'hidden'} md:block absolute md:static bg-indigo-700 md:bg-transparent w-full md:w-auto left-0 top-14 md:top-0 z-40`}>
             <div className="flex flex-col md:flex-row md:items-center space-y-4 md:space-y-0 md:space-x-4 p-4 md:p-0">
-              <Link to={'/'} className={`${location.pathname == '/' ? 'text-purple-700':''} block py-2 px-4 rounded hover:text-purple-700 hover:bg-indigo-600 md:hover:bg-transparent`}>Home</Link>
-              <Link to={'/blog'} className={`${location.pathname == '/blog' ? 'text-purple-700':''} block py-2 px-4 rounded hover:text-purple-700 hover:bg-indigo-600 md:hover:bg-transparent`}>Blog</Link>
-              <Link to={'/about'} className={`${location.pathname == '/about' ? 'text-purple-700':''} block py-2 px-4 hover:text-purple-700 rounded hover:bg-indigo-600 md:hover:bg-transparent`}>About</Link>
-              <button><Link to={'/contact'} className={`${location.pathname == '/contact' ? 'text-purple-700':''} block py-2 px-4 rounded bg-purple-700 hover:bg-purple-600 md:bg-transparent md:border md:border-purple-700 md:text-purple-700 md:hover:text-white`}>Contact Us</Link></button>
+              <Link to={'/'} className={`${location.pathname === '/' ? 'text-purple-700':''} block py-2 px-4 rounded hover:text-purple-700 hover:bg-indigo-600 md:hover:bg-transparent`}>Home</Link>
+              <Link to={'/blog'} className={`${location.pathname === '/blog' ? 'text-purple-700':''} block py-2 px-4 rounded hover:text-purple-700 hover:bg-indigo-600 md:hover:bg-transparent`}>Blog</Link>
+              <Link to={'/about'} className={`${location.pathname === '/about' ? 'text-purple-700':''} block py-2 px-4 hover:text-purple-700 rounded hover:bg-indigo-600 md:hover:bg-transparent`}>About</Link>
+              <button><Link to={'/contact'} className={`${location.pathname === '/contact' ? 'text-purple-700':''} block py-2 px-4 rounded bg-purple-700 hover:bg-purple-600 md:bg-transparent md:border md:border-purple-700 md:text-purple-700 md:hover:text-white`}>Contact Us</Link></button>
             </div>
           </nav>
         </div>

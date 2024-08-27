@@ -1,14 +1,14 @@
 import React from 'react';
-import Header from './components/Header.tsx';
-import Footer from './components/Footer.tsx';
-import SubscriptionForm from './components/SubscriptionForm.tsx';
-import AboutUs from './components/AboutUs.tsx';
-import Home from './Home.tsx';
-import Postview from './Postview.tsx';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import SubscriptionForm from './components/SubscriptionForm';
+import AboutUs from './components/AboutUs';
+import Home from './Home';
+import Postview from './Postview';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import NotFound from './NotFound.tsx';
-import ContactForm from './components/ContactForm.tsx';
-import Blog from './Blog.tsx';
+import NotFound from './NotFound';
+import ContactForm from './components/ContactForm';
+import Blog from './Blog';
 
 const App = () => {
   return (<BrowserRouter>

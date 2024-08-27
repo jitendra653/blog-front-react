@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import withDataFetching from './withDataFetching.tsx';
-import DataDisplay from './DataDisplay.tsx';
+import withDataFetching from './withDataFetching';
+import DataDisplay from './DataDisplay';
 
 interface DataDisplayProps {
   query: string;
