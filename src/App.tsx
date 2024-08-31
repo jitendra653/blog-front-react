@@ -9,9 +9,13 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NotFound from './NotFound';
 import ContactForm from './components/ContactForm';
 import Blog from './Blog';
+import Hoc from './Hoc/Hoc'
+import ErrorBoundary from './ErrorBoundary/ErrorBoundary';
 
 const App = () => {
-  return (<BrowserRouter>
+  return (
+  <ErrorBoundary>
+  <BrowserRouter>
     <Header />
     <div className='mt-16'>
       <Routes>
@@ -26,7 +30,8 @@ const App = () => {
     </div>
     <SubscriptionForm />
     <Footer />
-  </BrowserRouter>);
+  </BrowserRouter>
+  </ErrorBoundary>);
 }
 
 export default App;

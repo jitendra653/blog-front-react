@@ -68,6 +68,7 @@ function withDataFetching<T>(
     return (
       <WrappedComponent
         data={data}
+        setData={setData}
         loading={loading}
         error={error}
         retryFetch={retryFetch}

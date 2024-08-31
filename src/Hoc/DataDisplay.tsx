@@ -2,6 +2,7 @@ import React from 'react';
 
 interface DataDisplayProps {
   data: any[];
+  setData:any;
   loading: boolean;
   error: Error | null;
   retryFetch: () => void;
@@ -9,7 +10,7 @@ interface DataDisplayProps {
   hasMore: boolean;
 }
 
-const DataDisplay: React.FC<DataDisplayProps> = ({ data, loading, error, retryFetch, fetchNextPage, hasMore }) => {
+const DataDisplay: React.FC<DataDisplayProps> = ({ data, loading, error, setData,retryFetch, fetchNextPage, hasMore }) => {
   if (loading && data.length === 0) {
     return <div>Loading...</div>;
   }
