@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Pagination from './Pagination';
 import Card from './components/Card';
-import axios from 'axios';
 interface ApiData {
 key: [string]
 }
