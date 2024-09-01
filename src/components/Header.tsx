@@ -17,7 +17,7 @@ const Header: React.FC = () => {
         </div> */}
             <h1 className="text-2xl fill-white font-bold ml-2">
               <Link to={'/'}>
-                <img src="logo.svg" alt="Logo" />
+                <img src="Logo.svg" alt="Logo" />
               </Link>
             </h1>
           </div>

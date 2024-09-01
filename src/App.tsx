@@ -10,10 +10,18 @@ import NotFound from './NotFound';
 import ContactForm from './components/ContactForm';
 import Blog from './Blog';
 import ErrorBoundary from './ErrorBoundary/ErrorBoundary';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'; 
+import { Provider } from 'react-redux';
+import Loader from './components/loader/Loader';
+import store from './store/store';
 
 const App = () => {
   return (
+    <Provider store={store}>
+    <Loader />
   <ErrorBoundary>
+       <ToastContainer />
   <BrowserRouter>
     <Header />
     <div className='mt-16'>
@@ -30,7 +38,9 @@ const App = () => {
     <SubscriptionForm />
     <Footer />
   </BrowserRouter>
-  </ErrorBoundary>);
+  </ErrorBoundary>
+  </Provider>
+  );
 }
 
 export default App;

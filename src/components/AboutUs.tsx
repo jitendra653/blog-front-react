@@ -10,13 +10,13 @@ const AboutUs: React.FC = () => {
       </p>
       <div className="max-w-4xl mx-auto">
         <img
-          src="/about.png" // Replace with the actual path to your image
+          src="/about.png"
           alt="Team working together"
           className="rounded-lg shadow-lg"
         />
       </div>
     </div>
-    
+
     <div className="flex flex-col items-center py-12 bg-white">
       <h2 className="text-lg uppercase tracking-widest text-gray-600 mb-2">How We Work</h2>
       <h1 className="text-3xl md:text-4xl font-bold mb-4 text-center">
@@ -55,13 +55,7 @@ const AboutUs: React.FC = () => {
         </div>
       </div>
     </div>
-    
-    
-    
-    
-    
-    
-    </>
+  </>
   );
 };
 

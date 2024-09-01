@@ -1,11 +1,14 @@
 import React, { useRef } from 'react';
+import { useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
+import { hideLoader, showLoader } from '../store/loaderActions';
 
 const SubscriptionForm: React.FC = () => {
   const emailRef = useRef<HTMLInputElement>(null);
-
+  const dispatch = useDispatch();
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-
+    dispatch(showLoader());
     if (emailRef.current?.value) {
       const email = emailRef.current.value;
       const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -13,9 +16,8 @@ const SubscriptionForm: React.FC = () => {
         alert('Please enter a valid email address.');
         return;
       }
-
       try {
-        const response = await fetch('https://blog-admin-next.vercel.app/api/newsletter', {
+        const response = await fetch('/api/newsletter', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -23,16 +25,16 @@ const SubscriptionForm: React.FC = () => {
           mode: 'no-cors',
           body: JSON.stringify({ email }),
         });
-
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
-
-        // Handle successful response
+        dispatch(hideLoader());
+        toast.success('Subscription successful!');
         console.log('Subscription successful!');
         emailRef.current.value = '';  // Clear input on successful subscription
       } catch (error) {
-        // Handle error
+        dispatch(hideLoader());
+        toast.error('Error subscribing')
         console.error('Error subscribing:', error);
       }
     }

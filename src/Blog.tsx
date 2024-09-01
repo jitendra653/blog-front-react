@@ -1,257 +1,39 @@
 import React, { useEffect, useState } from 'react';
 import Pagination from './Pagination';
 import Card from './components/Card';
+import { useDispatch } from 'react-redux';
+import { hideLoader, showLoader } from './store/loaderActions';
 interface ApiData {
   [key: string]: any;
 }
 
 const Blog: React.FC = () => {
   const [blogs, setBlogs] = useState<ApiData[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const fetchData = async () => {
-      try {
-        const response = await fetch('https://blog-admin-next.vercel.app/api/post',{
-          mode:'no-cors'
-        });
-        console.log({response: response.json()});
-        const result: ApiData[] = await response.json();
-        setBlogs(result);
-      } catch (error) {
-        setError('Failed to fetch data');
-        console.error('Error fetching data:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
+      dispatch(showLoader());
+      const requestOptions: any = {
+        method: "GET",
+        redirect: "follow",
+        mode: 'no-cors'
+      };
 
+      fetch("/api/post", requestOptions)
+        .then((response) => response.json())
+        .then((result) => {
+          setBlogs(result);
+          dispatch(hideLoader());
+        })
+        .catch((error) => {
+          dispatch(hideLoader());
+          console.error({ error })
+        });
+    };
     fetchData();
   }, []);
 
-
-  const blogs1 = [
-    {
-      image: 'header.png',
-      category: 'Travel',
-      date: '13 March 2023',
-      title: 'Train Or Bus Journey? Which one suits?',
-      description: 'The choice between a train or bus journey depends on various factors such as the distance of the journey, the time available, the cost, and person',
-      link: '#',
-    }, {
-      image: 'header.png',
-      category: 'Travel',
-      date: '13 March 2023',
-      title: 'Train Or Bus Journey? Which one suits?',
-      description: 'The choice between a train or bus journey depends on various factors such as the distance of the journey, the time available, the cost, and person',
-      link: '#',
-    }, {
-      image: 'header.png',
-      category: 'Travel',
-      date: '13 March 2023',
-      title: 'Train Or Bus Journey? Which one suits?',
-      description: 'The choice between a train or bus journey depends on various factors such as the distance of the journey, the time available, the cost, and person',
-      link: '#',
-    }, {
-      image: 'header.png',
-      category: 'Travel',
-      date: '13 March 2023',
-      title: 'Train Or Bus Journey? Which one suits?',
-      description: 'The choice between a train or bus journey depends on various factors such as the distance of the journey, the time available, the cost, and person',
-      link: '#',
-    }, {
-      image: 'header.png',
-      category: 'Travel',
-      date: '13 March 2023',
-      title: 'Train Or Bus Journey? Which one suits?',
-      description: 'The choice between a train or bus journey depends on various factors such as the distance of the journey, the time available, the cost, and person',
-      link: '#',
-    }, {
-      image: 'header.png',
-      category: 'Travel',
-      date: '13 March 2023',
-      title: 'Train Or Bus Journey? Which one suits?',
-      description: 'The choice between a train or bus journey depends on various factors such as the distance of the journey, the time available, the cost, and person',
-      link: '#',
-    }, {
-      image: 'header.png',
-      category: 'Travel',
-      date: '13 March 2023',
-      title: 'Train Or Bus Journey? Which one suits?',
-      description: 'The choice between a train or bus journey depends on various factors such as the distance of the journey, the time available, the cost, and person',
-      link: '#',
-    }, {
-      image: 'header.png',
-      category: 'Travel',
-      date: '13 March 2023',
-      title: 'Train Or Bus Journey? Which one suits?',
-      description: 'The choice between a train or bus journey depends on various factors such as the distance of the journey, the time available, the cost, and person',
-      link: '#',
-    }, {
-      image: 'header.png',
-      category: 'Travel',
-      date: '13 March 2023',
-      title: 'Train Or Bus Journey? Which one suits?',
-      description: 'The choice between a train or bus journey depends on various factors such as the distance of the journey, the time available, the cost, and person',
-      link: '#',
-    }, {
-      image: 'header.png',
-      category: 'Travel',
-      date: '13 March 2023',
-      title: 'Train Or Bus Journey? Which one suits?',
-      description: 'The choice between a train or bus journey depends on various factors such as the distance of the journey, the time available, the cost, and person',
-      link: '#',
-    }, {
-      image: 'header.png',
-      category: 'Travel',
-      date: '13 March 2023',
-      title: 'Train Or Bus Journey? Which one suits?',
-      description: 'The choice between a train or bus journey depends on various factors such as the distance of the journey, the time available, the cost, and person',
-      link: '#',
-    }, {
-      image: 'header.png',
-      category: 'Travel',
-      date: '13 March 2023',
-      title: 'Train Or Bus Journey? Which one suits?',
-      description: 'The choice between a train or bus journey depends on various factors such as the distance of the journey, the time available, the cost, and person',
-      link: '#',
-    }, {
-      image: 'header.png',
-      category: 'Travel',
-      date: '13 March 2023',
-      title: 'Train Or Bus Journey? Which one suits?',
-      description: 'The choice between a train or bus journey depends on various factors such as the distance of the journey, the time available, the cost, and person',
-      link: '#',
-    }, {
-      image: 'header.png',
-      category: 'Travel',
-      date: '13 March 2023',
-      title: 'Train Or Bus Journey? Which one suits?',
-      description: 'The choice between a train or bus journey depends on various factors such as the distance of the journey, the time available, the cost, and person',
-      link: '#',
-    }, {
-      image: 'header.png',
-      category: 'Travel',
-      date: '13 March 2023',
-      title: 'Train Or Bus Journey? Which one suits?',
-      description: 'The choice between a train or bus journey depends on various factors such as the distance of the journey, the time available, the cost, and person',
-      link: '#',
-    }, {
-      image: 'header.png',
-      category: 'Travel',
-      date: '13 March 2023',
-      title: 'Train Or Bus Journey? Which one suits?',
-      description: 'The choice between a train or bus journey depends on various factors such as the distance of the journey, the time available, the cost, and person',
-      link: '#',
-    }, {
-      image: 'header.png',
-      category: 'Travel',
-      date: '13 March 2023',
-      title: 'Train Or Bus Journey? Which one suits?',
-      description: 'The choice between a train or bus journey depends on various factors such as the distance of the journey, the time available, the cost, and person',
-      link: '#',
-    }, {
-      image: 'header.png',
-      category: 'Travel',
-      date: '13 March 2023',
-      title: 'Train Or Bus Journey? Which one suits?',
-      description: 'The choice between a train or bus journey depends on various factors such as the distance of the journey, the time available, the cost, and person',
-      link: '#',
-    }, {
-      image: 'header.png',
-      category: 'Travel',
-      date: '13 March 2023',
-      title: 'Train Or Bus Journey? Which one suits?',
-      description: 'The choice between a train or bus journey depends on various factors such as the distance of the journey, the time available, the cost, and person',
-      link: '#',
-    }, {
-      image: 'header.png',
-      category: 'Travel',
-      date: '13 March 2023',
-      title: 'Train Or Bus Journey? Which one suits?',
-      description: 'The choice between a train or bus journey depends on various factors such as the distance of the journey, the time available, the cost, and person',
-      link: '#',
-    }, {
-      image: 'header.png',
-      category: 'Travel',
-      date: '13 March 2023',
-      title: 'Train Or Bus Journey? Which one suits?',
-      description: 'The choice between a train or bus journey depends on various factors such as the distance of the journey, the time available, the cost, and person',
-      link: '#',
-    }, {
-      image: 'header.png',
-      category: 'Travel',
-      date: '13 March 2023',
-      title: 'Train Or Bus Journey? Which one suits?',
-      description: 'The choice between a train or bus journey depends on various factors such as the distance of the journey, the time available, the cost, and person',
-      link: '#',
-    }, {
-      image: 'header.png',
-      category: 'Travel',
-      date: '13 March 2023',
-      title: 'Train Or Bus Journey? Which one suits?',
-      description: 'The choice between a train or bus journey depends on various factors such as the distance of the journey, the time available, the cost, and person',
-      link: '#',
-    }, {
-      image: 'header.png',
-      category: 'Travel',
-      date: '13 March 2023',
-      title: 'Train Or Bus Journey? Which one suits?',
-      description: 'The choice between a train or bus journey depends on various factors such as the distance of the journey, the time available, the cost, and person',
-      link: '#',
-    }, {
-      image: 'header.png',
-      category: 'Travel',
-      date: '13 March 2023',
-      title: 'Train Or Bus Journey? Which one suits?',
-      description: 'The choice between a train or bus journey depends on various factors such as the distance of the journey, the time available, the cost, and person',
-      link: '#',
-    }, {
-      image: 'header.png',
-      category: 'Travel',
-      date: '13 March 2023',
-      title: 'Train Or Bus Journey? Which one suits?',
-      description: 'The choice between a train or bus journey depends on various factors such as the distance of the journey, the time available, the cost, and person',
-      link: '#',
-    }, {
-      image: 'header.png',
-      category: 'Travel',
-      date: '13 March 2023',
-      title: 'Train Or Bus Journey? Which one suits?',
-      description: 'The choice between a train or bus journey depends on various factors such as the distance of the journey, the time available, the cost, and person',
-      link: '#',
-    }, {
-      image: 'header.png',
-      category: 'Travel',
-      date: '13 March 2023',
-      title: 'Train Or Bus Journey? Which one suits?',
-      description: 'The choice between a train or bus journey depends on various factors such as the distance of the journey, the time available, the cost, and person',
-      link: '#',
-    }, {
-      image: 'header.png',
-      category: 'Travel',
-      date: '13 March 2023',
-      title: 'Train Or Bus Journey? Which one suits?',
-      description: 'The choice between a train or bus journey depends on various factors such as the distance of the journey, the time available, the cost, and person',
-      link: '#',
-    }, {
-      image: 'header.png',
-      category: 'Travel',
-      date: '13 March 2023',
-      title: 'Train Or Bus Journey? Which one suits?',
-      description: 'The choice between a train or bus journey depends on various factors such as the distance of the journey, the time available, the cost, and person',
-      link: '#',
-    }, {
-      image: 'header.png',
-      category: 'Travel',
-      date: '13 March 2023',
-      title: 'Train Or Bus Journey? Which one suits?',
-      description: 'The choice between a train or bus journey depends on various factors such as the distance of the journey, the time available, the cost, and person',
-      link: '#',
-    },
-    // Repeat similar blog objects with different data
-  ];
 
   const [currentPage, setCurrentPage] = useState(1);
   const blogsPerPage = 12;

@@ -1,4 +1,7 @@
 import React, { ChangeEvent, FormEvent, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
+import { hideLoader, showLoader } from '../store/loaderActions';
 
 interface FormData {
   name: string;
@@ -8,6 +11,8 @@ interface FormData {
   message: string;
 }
 const ContactForm: React.FC = () => {
+  const dispatch = useDispatch();
+
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
@@ -26,9 +31,9 @@ const ContactForm: React.FC = () => {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
+    dispatch(showLoader());
     try {
-      const response = await fetch('https://blog-admin-next.vercel.app/api/contact', {
+      const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -37,10 +42,10 @@ const ContactForm: React.FC = () => {
         mode: 'no-cors',
         body: JSON.stringify(formData),
       });
-console.log({response});
 
       if (response.ok) {
-        alert('Message sent successfully!');
+        dispatch(hideLoader());
+        toast.success('Message sent successfully!');
         setFormData({
           name: '',
           email: '',
@@ -49,8 +54,8 @@ console.log({response});
           message: ''
         });
       } else {
-        // Handle errors
-        alert('Failed to send message.');
+        dispatch(hideLoader());
+        toast.error('Failed to send message.');
       }
     } catch (error) {
       console.error('Error:', error);
