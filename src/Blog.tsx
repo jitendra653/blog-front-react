@@ -1,12 +1,38 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Pagination from './Pagination';
 import Card from './components/Card';
+import axios from 'axios';
+interface ApiData {
+key: [string]
+}
 
 const Blog: React.FC = () => {
+  const [blogs, setBlogs] = useState<ApiData[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('https://blog-admin-next.vercel.app/api/post',{
+          mode:'no-cors'
+        });
+        console.log({response: response.json()});
+        const result: ApiData[] = await response.json();
+        setBlogs(result);
+      } catch (error) {
+        setError('Failed to fetch data');
+        console.error('Error fetching data:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
 
 
-
-  const blogs = [
+  const blogs1 = [
     {
       image: 'header.png',
       category: 'Travel',
