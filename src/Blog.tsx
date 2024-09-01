@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Pagination from './Pagination';
 import Card from './components/Card';
 interface ApiData {
-key: [string]
+  [key: string]: any;
 }
 
 const Blog: React.FC = () => {
