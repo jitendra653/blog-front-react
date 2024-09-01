@@ -1,13 +1,14 @@
 const express = require('express');
 const axios = require('axios');
 const cors = require('cors');
+const serverless = require('serverless-http');
+
 const app = express();
-
-app.use(cors()); // Enable CORS for cross-origin requests
-
 const port = 5000;
 
-// Simple API endpoint to call another external API
+app.use(cors()); // Enable CORS for cross-origin requests
+app.use(express.json()); // Middleware to parse JSON request bodies
+
 app.get('/api/post', async (req, res) => {
   try {
     const response = await axios.get('https://blog-admin-next.vercel.app/api/post');
@@ -20,43 +21,31 @@ app.get('/api/post', async (req, res) => {
 
 app.post('/api/contact', async (req, res) => {
   try {
-    const response:any = await fetch('https://blog-admin-next.vercel.app/api/contact', {
-      method: 'POST',
+    const response = await axios.post('https://blog-admin-next.vercel.app/api/contact', req.body, {
       headers: {
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
       },
-      mode: 'no-cors',
-      body: JSON.stringify(req),
     });
     res.json(response.data);
   } catch (error) {
     console.error('Error:', error);
-    console.error('An error occurred while sending the message', error);
     res.status(500).json({ error: 'An error occurred while sending the message.' });
   }
 });
 
-
 app.post('/api/newsletter', async (req, res) => {
   try {
-    const response:any = await fetch('https://blog-admin-next.vercel.app/api/newsletter', {
-      method: 'POST',
+    const response = await axios.post('https://blog-admin-next.vercel.app/api/newsletter', req.body, {
       headers: {
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
       },
-      mode: 'no-cors',
-      body: JSON.stringify(req),
     });
     res.json(response.data);
   } catch (error) {
     console.error('Error:', error);
-    console.error('An error occurred while Subscription', error);
-    res.status(500).json({ error: 'An error occurred while Subscription.' });
+    res.status(500).json({ error: 'An error occurred while subscribing.' });
   }
 });
 
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
-});
+module.exports = app;
+module.exports.handler = serverless(app);
