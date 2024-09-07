@@ -7,18 +7,10 @@ import PostSection from './components/PostSection'
 export default function Home() {
   return (
     <div>
-            {/* <Header /> */}
-    {/* <Hero />
-      <Posts /> */}
-
-
-    <HeroSection />
-    <FeaturePost />
-    <RecentPost />
-    <PostSection />
-
-
-
+      <HeroSection />
+      <FeaturePost />
+      <RecentPost />
+      <PostSection />
     </div>
   )
 }

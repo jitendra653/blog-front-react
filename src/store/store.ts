@@ -1,10 +1,8 @@
 import { createStore, combineReducers } from 'redux';
-import loaderReducer from './loaderReducer';
-// import loaderReducer from './reducers/loaderReducer'; // Import your loader reducer
+import loaderReducer from './reducers/loaderReducer';
 
 const rootReducer = combineReducers({
-  loader: loaderReducer, // Add your loader reducer
-  // other reducers...
+  loader: loaderReducer,
 });
 
 const store = createStore(rootReducer);

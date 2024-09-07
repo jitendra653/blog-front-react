@@ -3,10 +3,10 @@ import Pagination from './Pagination';
 import Card from './components/Card';
 import { useDispatch } from 'react-redux';
 import { hideLoader, showLoader } from './store/loaderActions';
+import { formatDate } from './lib/utils';
 interface ApiData {
   [key: string]: any;
 }
-
 const Blog: React.FC = () => {
   const [blogs, setBlogs] = useState<ApiData[]>([]);
   const dispatch = useDispatch();
@@ -63,10 +63,10 @@ const Blog: React.FC = () => {
               key={index}
               image={blog.image}
               category={blog.category}
-              date={blog.date}
-              title={blog.title + '  ' + index}
+              date={formatDate(blog.createdAt)}
+              title={blog.title}
               description={blog.description}
-              link={blog.link}
+              link={blog.slug}
             />
           ))}
         </div>

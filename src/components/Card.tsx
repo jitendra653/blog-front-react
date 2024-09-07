@@ -20,8 +20,7 @@ const Card: React.FC<CardProps> = ({ image, category, date, title, description, 
         </div>
         <h2 className="text-xl font-bold mb-2">{title}</h2>
         <div className="text-gray-700 !font-normal mb-4 h-20 overflow-hidden" dangerouslySetInnerHTML={{ __html: description }}></div>
-        <span>...</span>
-        <Link to={'/post/productId'} className="text-purple-700 hover:underline">Read More...</Link>
+        <Link to={`/post/${link}`} className="text-purple-700 hover:underline">Read More...</Link>
       </div>
     </div>
   );

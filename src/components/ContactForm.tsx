@@ -88,7 +88,7 @@ const ContactForm: React.FC = () => {
               </svg>
             </div>
             <h2 className="text-lg font-semibold mb-2">Office</h2>
-            <p className="text-gray-600">Victoria Street, London, UK</p>
+            <p className="text-gray-600">Radixweb Software Service</p>
           </div>
           <div className="bg-white shadow-md rounded-lg p-6 flex flex-col items-center">
             <div className="bg-purple-500 p-4 rounded-full mb-4">
@@ -103,7 +103,7 @@ const ContactForm: React.FC = () => {
               </svg>
             </div>
             <h2 className="text-lg font-semibold mb-2">Email</h2>
-            <p className="text-gray-600">hello@zarrin.com</p>
+            <p className="text-gray-600"><a href = "mailto:jitendrapatidar653@gmail.com">jitendrapatidar653@gmail.com</a></p>
           </div>
           <div className="bg-white shadow-md rounded-lg p-6 flex flex-col items-center">
             <div className="bg-purple-500 p-4 rounded-full mb-4">
@@ -118,7 +118,7 @@ const ContactForm: React.FC = () => {
               </svg>
             </div>
             <h2 className="text-lg font-semibold mb-2">Phone</h2>
-            <p className="text-gray-600">(001) 2342 3451</p>
+            <p className="text-gray-600"><a href="tel:+91 7389232833">+91 7389232833</a></p>
           </div>
         </div>
       </div>
