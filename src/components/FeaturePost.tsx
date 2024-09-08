@@ -2,10 +2,10 @@ import React from 'react';
 
 const FeaturePost: React.FC = () => {
   return (<>
-  <div className="bg-gray-100 min-h-screen mb-40 h-max py-8 flex justify-center items-center">
+  <div className=" min-h-screen mb-40 h-max py-8 flex justify-center items-center">
     <div className="relative w-full md:w-5/6 lg:w-4/5 xl:w-3/4">
       <img
-        src="feature.png"  // Replace with your image path
+        src="feature.png"
         alt="VR & AI Technology"
         className="w-full h-auto object-cover rounded-lg shadow-lg"
       />

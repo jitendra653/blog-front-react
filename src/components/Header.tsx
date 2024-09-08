@@ -1,10 +1,19 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { useAppDispatch } from '../hooks/useAppDispatch';
+import { useAppSelector } from '../hooks/useAppSelector';
+import { fetchPosts } from '../store/postSlice';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
- 
+  const dispatch = useAppDispatch();
+  const posts = useAppSelector((state) => state.posts);
+console.log({posts});
+useEffect(() => {
+  console.log("api call");
+  dispatch(fetchPosts());
+}, [dispatch]);
 
   return (
     <div className=" ">

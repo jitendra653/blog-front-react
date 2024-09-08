@@ -4,50 +4,65 @@ import Card from './components/Card';
 import { useDispatch } from 'react-redux';
 import { hideLoader, showLoader } from './store/loaderActions';
 import { formatDate } from './lib/utils';
-import { useAppDispatch } from './hooks/useAppDispatch';
-import { useAppSelector } from './hooks/useAppSelector';
+import { FixedSizeList as List } from 'react-window';
 
 interface ApiData {
   [key: string]: any;
 }
+
 const Blog: React.FC = () => {
-  const dispatch = useAppDispatch();
-  const blogs = useAppSelector((state) => state?.posts?.posts);
-  console.log({ blogs });
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     dispatch(showLoader());
-  //     const requestOptions: any = {
-  //       method: "GET",
-  //       redirect: "follow",
-  //       mode: 'no-cors'
-  //     };
-
-  //     fetch("/api/post", requestOptions)
-  //       .then((response) => response.json())
-  //       .then((result) => {
-  //         setBlogs(result);
-  //         dispatch(hideLoader());
-  //       })
-  //       .catch((error) => {
-  //         dispatch(hideLoader());
-  //         console.error({ error })
-  //       });
-  //   };
-  //   fetchData();
-  // }, []);
-
-
-
-
+  const [blogs, setBlogs] = useState<ApiData[]>([]);
+  const dispatch = useDispatch();
   const [currentPage, setCurrentPage] = useState(1);
   const blogsPerPage = 12;
 
+  useEffect(() => {
+    const fetchData = async () => {
+      dispatch(showLoader());
+      const requestOptions: any = {
+        method: "GET",
+        redirect: "follow",
+        mode: 'no-cors'
+      };
+
+      fetch("/api/post", requestOptions)
+        .then((response) => response.json())
+        .then((result) => {
+          setBlogs(result);
+          dispatch(hideLoader());
+        })
+        .catch((error) => {
+          dispatch(hideLoader());
+          console.error({ error })
+        });
+    };
+    fetchData();
+  }, [dispatch]);
+
+  // Calculate current blogs
   const indexOfLastBlog = currentPage * blogsPerPage;
   const indexOfFirstBlog = indexOfLastBlog - blogsPerPage;
   const currentBlogs = blogs.slice(indexOfFirstBlog, indexOfLastBlog);
 
+  // Handle pagination
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
+
+  // Row component for rendering each blog item
+  const Row = ({ index, style }: { index: number; style: React.CSSProperties }) => {
+    const blog = currentBlogs[index];
+    return (
+      <div style={style}>
+        <Card
+          image={blog.image}
+          category={blog.category}
+          date={formatDate(blog.createdAt)}
+          title={blog.title}
+          description={blog.description}
+          link={blog.slug}
+        />
+      </div>
+    );
+  };
 
   return (
     <div className="py-12 bg-gray-100">
@@ -62,18 +77,15 @@ const Blog: React.FC = () => {
             you the best blogs and articles for you to read them all along
           </p>
         </div>
-        <div className="mt-10 grid gap-10 lg:grid-cols-3 lg:max-w-none">
-          {currentBlogs.map((blog:any, index) => (
-            <Card
-              key={index}
-              image={blog.image}
-              category={blog.category}
-              date={formatDate(blog.createdAt)}
-              title={blog.title}
-              description={blog.description}
-              link={blog.slug}
-            />
-          ))}
+        <div className="mt-10">
+          <List
+            height={600} // Adjust based on your layout
+            itemCount={currentBlogs.length}
+            itemSize={200} // Adjust based on your Card component height
+            width="100%"
+          >
+            {Row}
+          </List>
         </div>
         <Pagination
           blogsPerPage={blogsPerPage}
