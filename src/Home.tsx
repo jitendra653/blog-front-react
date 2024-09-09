@@ -1,8 +1,8 @@
 import React from 'react'
-import HeroSection from './components/HeroSection'
-import FeaturePost from './components/FeaturePost'
-import RecentPost from './components/RecentPost'
-import PostSection from './components/PostSection'
+import HeroSection from './components/Home/HeroSection'
+import FeaturePost from './components/Home/FeaturePost'
+import RecentPost from './components/Home/RecentPost'
+import PostSection from './components/Home/PostSection'
 
 export default function Home() {
   return (

@@ -1,0 +1,65 @@
+[{
+  "_id": {
+    "$oid": "66cc0baf633a03a3c0585d3b"
+  },
+  "email": "jitendrapatidar653@gmail.com",
+  "createdAt": {
+    "$date": "2024-08-26T04:59:27.948Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-26T04:59:27.948Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66d373e0c3cc509d0aa934ed"
+  },
+  "email": "jitendrapatidar653@gmail.com",
+  "createdAt": {
+    "$date": "2024-08-31T19:49:52.363Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-31T19:49:52.363Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66d374b3c3cc509d0aa934f1"
+  },
+  "email": "jitendrapatidar653@gmail.com",
+  "createdAt": {
+    "$date": "2024-08-31T19:53:23.310Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-31T19:53:23.310Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66d430a7ff5aa3b104d8dbd9"
+  },
+  "email": "jitendrapatidar583@gmail.com",
+  "createdAt": {
+    "$date": "2024-09-01T09:15:19.272Z"
+  },
+  "updatedAt": {
+    "$date": "2024-09-01T09:15:19.272Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66d43347b8e77a11de823dff"
+  },
+  "email": "jitendrapatidar583@gmail.com",
+  "createdAt": {
+    "$date": "2024-09-01T09:26:31.783Z"
+  },
+  "updatedAt": {
+    "$date": "2024-09-01T09:26:31.783Z"
+  },
+  "__v": 0
+}]

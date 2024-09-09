@@ -1,0 +1,68 @@
+[{
+  "_id": {
+    "$oid": "669031ce7a28bc4d4795ddf3"
+  },
+  "name": "admin",
+  "email": "admin@gmail.com",
+  "password": "$2a$10$vD0rs4a.RxNoy5pHuw4ei.VqU9JNxhohAayyXSeXm8X2xJ0LmBP/q",
+  "createdAt": {
+    "$date": "2024-07-11T19:26:06.235Z"
+  },
+  "updatedAt": {
+    "$date": "2024-09-09T05:00:36.005Z"
+  },
+  "__v": 0,
+  "role": "",
+  "status": "inactive"
+},
+{
+  "_id": {
+    "$oid": "66926a4a2b1bac3d1f94b8bf"
+  },
+  "name": "12345 123231232",
+  "email": "jjitu653@gmail.com",
+  "password": "$2a$10$uboSncaQK.X5lIZqTQ3okuweTCMkFhRXEwj9FCdxIEhBRSkMHv70m",
+  "createdAt": {
+    "$date": "2024-07-13T11:51:38.111Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-11T10:22:57.977Z"
+  },
+  "__v": 0,
+  "role": "user",
+  "status": "active"
+},
+{
+  "_id": {
+    "$oid": "66b893a1084e956e891dd6a3"
+  },
+  "name": "Jitendra",
+  "email": "admin123@gmail.com",
+  "status": "active",
+  "role": "admin",
+  "password": "",
+  "createdAt": {
+    "$date": "2024-08-11T10:34:09.268Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-11T10:36:33.828Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66b8979b084e956e891dd6c0"
+  },
+  "name": "Jitendra",
+  "email": "admin2@gmail.com",
+  "status": "active",
+  "role": "admin",
+  "password": "",
+  "createdAt": {
+    "$date": "2024-08-11T10:51:07.636Z"
+  },
+  "updatedAt": {
+    "$date": "2024-08-11T10:56:44.502Z"
+  },
+  "__v": 0
+}]

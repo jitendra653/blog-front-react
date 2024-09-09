@@ -1,38 +1,29 @@
-
-require('@babel/register')({
-    presets: ['@babel/preset-env', '@babel/preset-react', '@babel/preset-typescript'],
-    extensions: ['.js', '.jsx', '.ts', '.tsx']
-  });
-  
-// server.js
 const express = require('express');
+const path = require('path');
+const fs = require('fs');
 const React = require('react');
 const ReactDOMServer = require('react-dom/server');
-const fs = require('fs');
-const path = require('path');
-
-// Import the main App component
-const App = require('./src/App.tsx');
+const App = require('./src/App.tsx'); // Your React App component
 
 const app = express();
 
-app.use(express.static('public'));
+// Serve static assets like JS and CSS
+app.use(express.static(path.resolve(__dirname, 'build')));
 
 app.get('*', (req, res) => {
-  const appComponent = ReactDOMServer.renderToString(React.createElement(App));
+  const stream = ReactDOMServer.renderToPipeableStream(<App />, {
+    onShellReady() {
+      res.statusCode = 200;
+      res.setHeader('Content-type', 'text/html');
 
-  // Read the HTML template
-  const indexFile = path.resolve('./public/index.html');
-  fs.readFile(indexFile, 'utf8', (err, data) => {
-    if (err) {
-      console.error('Something went wrong:', err);
-      return res.status(500).send('Internal Server Error');
+      // Start streaming the HTML shell
+      stream.pipe(res);
+    },
+    onError(err) {
+      console.error(err);
+      res.statusCode = 500;
+      res.send('An error occurred');
     }
-
-    // Inject the server-rendered app component into the HTML
-    return res.send(
-      data.replace('<div id="root"></div>', `<div id="root">${appComponent}</div>`)
-    );
   });
 });
 

@@ -1,14 +1,13 @@
 const express = require('express');
 const axios = require('axios');
-const cors = require('cors');
+// const cors = require('cors');
 const app = express();
 const port = 5000;
 
-app.use(cors()); // Enable CORS for cross-origin requests
-app.use(express.json()); // Middleware to parse JSON request bodies
+// app.use(cors());
+app.use(express.json());
 
-// Simple API endpoint to call another external API
-app.get('/api/post', async (req, res) => {
+app.get('/api/posts', async (req, res) => {
   try {
     const response = await axios.get('https://blog-admin-next.vercel.app/api/post');
     res.json(response.data);
@@ -18,7 +17,6 @@ app.get('/api/post', async (req, res) => {
   }
 });
 
-// Post endpoint for contact form
 app.post('/api/contact', async (req, res) => {
   try {
     const response = await axios.post('https://blog-admin-next.vercel.app/api/contact', req.body, {
@@ -33,7 +31,6 @@ app.post('/api/contact', async (req, res) => {
   }
 });
 
-// Post endpoint for newsletter subscription
 app.post('/api/newsletter', async (req, res) => {
   try {
     const response = await axios.post('https://blog-admin-next.vercel.app/api/newsletter', req.body, {

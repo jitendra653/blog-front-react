@@ -1,7 +1,7 @@
 import React, { ChangeEvent, FormEvent, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
-import { hideLoader, showLoader } from '../store/loaderActions';
+import { hideLoader, showLoader } from '../../store/loaderActions';
 
 interface FormData {
   name: string;
