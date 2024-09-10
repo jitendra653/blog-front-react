@@ -13,11 +13,9 @@ export const fetchPosts = createAsyncThunk(
   'posts/fetchPosts',
   async () => {
     const requestOptions: any = {
-      method: "GET",
-      redirect: "follow",
-      mode: 'no-cors'
+      method: "GET"
     };
-    const response = await  fetch("/api/post", requestOptions);
+    const response = await  fetch(`${process.env.REACT_APP_API_URL}/posts`, requestOptions);
     if (!response.ok) {
       throw new Error('Failed to fetch posts');
     }

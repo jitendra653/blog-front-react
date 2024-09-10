@@ -99,13 +99,11 @@ const ContactForm: React.FC = () => {
     dispatch(showLoader())
 
     try {
-      const response = await fetch('/api/contact', {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/contact`, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': '*',
+          'Content-Type': 'application/json'
         },
-        mode: 'no-cors',
         body: JSON.stringify(formData),
       })
 

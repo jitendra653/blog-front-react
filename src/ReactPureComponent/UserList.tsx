@@ -5,7 +5,6 @@ import UserComponent from './UserComponent';
 class UserList extends React.PureComponent<UserListProps> {
   render() {
     const { users, onUpdateAge } = this.props;
-    console.log('Rendering UserList');
     return (
       <div>
         {users.map(user => (
