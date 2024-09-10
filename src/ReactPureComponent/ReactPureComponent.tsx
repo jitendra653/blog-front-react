@@ -5,8 +5,8 @@ import { User } from './types';
 class ReactPureComponent extends Component {
   state = {
     users: [
-      { id: 1, name: 'Alice', age: 25 },
-      { id: 2, name: 'Bob', age: 30 },
+      { id: 1, name: 'Jitendra', age: 20 },
+      { id: 2, name: 'J patel', age: 30 },
     ] as User[],
   };
 

@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 
 
 import { hydrate } from 'react-dom';
-
+// ReactDOM.hydrate(<App />, document.getElementById('root'))
 hydrate(<App />, document.getElementById('root'));
 // const root = ReactDOM.createRoot(
 //   document.getElementById('root') as HTMLElement

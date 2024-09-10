@@ -31,7 +31,7 @@ const SubscriptionForm: React.FC = () => {
         dispatch(hideLoader());
         toast.success('Subscription successful!');
         console.log('Subscription successful!');
-        emailRef.current.value = '';  // Clear input on successful subscription
+        emailRef.current.value = '';
       } catch (error) {
         dispatch(hideLoader());
         toast.error('Error subscribing')

@@ -4,6 +4,7 @@
   "private": true,
   "proxy": "https://blog-admin-next.vercel.app",
   "dependencies": {
+    "@babel/register": "^7.24.6",
     "@reduxjs/toolkit": "^2.2.5",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -16,6 +17,7 @@
     "babel-register": "^6.26.0",
     "express": "^4.19.2",
     "html-webpack-plugin": "^5.6.0",
+    "ignore-styles": "^5.0.1",
     "mobx": "^6.12.4",
     "mobx-react-lite": "^4.0.7",
     "react": "^18.3.1",
@@ -27,6 +29,7 @@
     "react-window": "^1.8.10",
     "recoil": "^0.7.7",
     "redux": "^5.0.1",
+    "serve": "^14.2.3",
     "web-vitals": "^2.1.4",
     "webpack": "^5.94.0",
     "webpack-cli": "^5.1.4"
