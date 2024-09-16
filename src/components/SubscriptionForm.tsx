@@ -17,12 +17,11 @@ const SubscriptionForm: React.FC = () => {
         return;
       }
       try {
-        const response = await fetch('/api/newsletter', {
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/newsletter`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
-          mode: 'no-cors',
           body: JSON.stringify({ email }),
         });
         if (!response.ok) {
@@ -30,8 +29,7 @@ const SubscriptionForm: React.FC = () => {
         }
         dispatch(hideLoader());
         toast.success('Subscription successful!');
-        console.log('Subscription successful!');
-        emailRef.current.value = '';  // Clear input on successful subscription
+        emailRef.current.value = '';
       } catch (error) {
         dispatch(hideLoader());
         toast.error('Error subscribing')
