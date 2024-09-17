@@ -22,6 +22,6 @@
   },
   "include": [
     "src"
-, "server/server.js"  ],
+, "server/server.ts"  ],
   "exclude": ["src/__Hoc","src/Hoc"]
 }

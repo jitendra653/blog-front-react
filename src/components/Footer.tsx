@@ -10,7 +10,7 @@ const Footer: React.FC = () =>{
     <div className="bg-white py-4 md:py-6 border-t border-purple-200">
       <div className="container mx-auto flex flex-col items-center px-4">
         <div className="text-xl md:text-2xl font-bold text-purple-600 mb-4">
-          <img src="Logo.svg" alt="" />
+          <img src="/Logo.svg" alt="" />
         </div>
         <nav className="mb-4 text-sm sm:text-base">
            <Link to={'/'} className={`${location.pathname === '/' ?'text-purple-700':'text-gray-600'} px-2 py-1 hover:text-purple-600`}>Home</Link>
