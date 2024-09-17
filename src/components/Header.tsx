@@ -4,6 +4,7 @@ import { useAppDispatch } from '../hooks/useAppDispatch'
 import { useAppSelector } from '../hooks/useAppSelector'
 import { fetchPosts } from '../store/postSlice'
 import { hideLoader, showLoader } from '../store/loaderActions'
+import Search from './Search'
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -28,7 +29,7 @@ const Header: React.FC = () => {
           <div className="flex items-center">
             <h1 className="text-2xl fill-white font-bold ml-2">
               <Link to={'/'}>
-                <img src="Logo.svg" alt="Logo" />
+                <img src="/Logo.svg" alt="Logo" />
               </Link>
             </h1>
           </div>
@@ -97,6 +98,7 @@ const Header: React.FC = () => {
                   Contact Us
                 </Link>
               </button>
+              <Search/>
             </div>
           </nav>
         </div>

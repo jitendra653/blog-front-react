@@ -8,12 +8,12 @@ const FeaturePost: React.FC = () => {
   const [blogPost]: any = blogs.slice(2, 3)
   return (
     <>
-      <div className=" min-h-screen mb-40 h-max py-8 flex justify-center items-center">
+      <div className=" min-h-max mb-40 h-max py-8 flex justify-center items-center">
         <div className="relative w-full md:w-5/6 lg:w-4/5 xl:w-3/4">
           <img
             src={`https://reactadvance.s3.eu-north-1.amazonaws.com/${blogPost?.image}`}
             alt=""
-            className="w-full h-auto object-cover rounded-lg shadow-lg"
+            className="w-full h-[500px] object-cover rounded-lg shadow-lg"
           />
           <div className="absolute -bottom-32 right-0 w-5/6 bg-white p-6 rounded-b-lg">
             <p className="text-sm text-purple-600 font-semibold">

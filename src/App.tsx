@@ -12,7 +12,6 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Provider } from 'react-redux';
 import Loader from './components/loader/Loader';
 import store from './store/store';
-import Counter from './Counter';
 import ReactMemoItem from './ReactMemo/ReactMemoItem';
 import ReactPureComponent from './ReactPureComponent/ReactPureComponent';
 import VirtualizedList from './VirtualizedList/VirtualizedList';
@@ -51,7 +50,6 @@ const App = () => {
                 <Route path="/pure" element={<ReactPureComponent />} />
                 <Route path="/largelist" element={<VirtualizedList />} />
                 <Route path="/compound" element={<CompoundComponent />} />
-                <Route path="/counter" element={<Counter />} />
                 <Route path="/renderprop" element={<RenderProp />} />
                 <Route path="/hoc" element={<Hoc />} />
                 <Route path="/contextapi" element={<ContextApi />} />
