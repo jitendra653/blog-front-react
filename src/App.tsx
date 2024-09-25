@@ -21,12 +21,9 @@ import Hoc from './HOC/Hoc';
 import ReactRecoil from './ReactStatManagement/Recoil/ReactRecoil';
 import ContextApi from './ContextApi/ContextApi';
 
-// import Home from './Home';
-// import Postview from './Postview';
-// import Blog from './Blog';
-const Home = React.lazy(() => import('./Home'))
-const Postview = React.lazy(() => import('./Postview'))
-const Blog = React.lazy(() => import('./Blog'))
+const Home = React.lazy(() => import('./Home/Home'))
+const Postview = React.lazy(() => import('./Blog/Postview'))
+const Blog = React.lazy(() => import('./Blog/Blog'))
 
 
 const App = () => {

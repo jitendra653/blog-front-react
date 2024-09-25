@@ -32,7 +32,7 @@ const Footer: React.FC = () =>{
             <FaYoutube className="text-purple-600 text-lg sm:text-xl"/>
           </a>
         </div>
-        <p className="text-gray-500 text-xs sm:text-sm">© Ideapeel Inc 2023. All Rights Reserved</p>
+        <p className="text-gray-500 text-xs sm:text-sm">© Jitendra Inc 2024. All Rights Reserved</p>
       </div>
     </div>
   </footer>
