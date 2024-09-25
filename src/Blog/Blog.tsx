@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import Pagination from './Pagination';
-import Card from './components/Card';
+import Pagination from '../lib/Pagination';
+import Card from '../components/Card';
 import { useDispatch } from 'react-redux';
-import { hideLoader, showLoader } from './store/loaderActions';
-import { formatDate } from './lib/utils';
-import { useAppDispatch } from './hooks/useAppDispatch';
-import { useAppSelector } from './hooks/useAppSelector';
+import { hideLoader, showLoader } from '../store/loaderActions';
+import { formatDate } from '../lib/utils';
+import { useAppDispatch } from '../hooks/useAppDispatch';
+import { useAppSelector } from '../hooks/useAppSelector';
 
 interface ApiData {
   [key: string]: any;

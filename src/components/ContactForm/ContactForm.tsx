@@ -222,7 +222,7 @@ const ContactForm: React.FC = () => {
               className="w-full h-full object-cover"
             />
           </div>
-          <div className="relative -mt-20 mb-28 bg-white shadow-lg rounded-lg mx-auto w-11/12 sm:w-3/4 lg:w-1/2 p-8">
+          <div className="relative -mt-20 mb-28 bg-white shadow-lg rounded-lg mx-auto w-11/12 sm:w-3/4 lg:w-2/5 p-8">
             <form onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
@@ -272,7 +272,7 @@ const ContactForm: React.FC = () => {
                 <div className="col-span-1 sm:col-span-2">
                   <label className="block text-sm font-medium text-gray-700">Message</label>
                   <textarea
-                    rows={4}
+                    rows={8}
                     name="message"
                     value={formData.message}
                     onChange={handleChange}

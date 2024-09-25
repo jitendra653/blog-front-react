@@ -9,10 +9,10 @@ const HeroSection: React.FC = () => {
   return (
     <section className="min-max bg-gradient-to-b from-indigo-600 to-purple-500 text-white">
       <main>
-        <div className="flex flex-col items-center justify-center text-center px-4 py-16 md:flex-row md:text-left">
+        <div className="flex flex-col items-center justify-center text-center px-4 py-16 md:flex-row md:text-left  w-full md:w-5/6 lg:w-4/5 xl:w-3/4 mx-auto">
           <div className="md:w-1/2">
             <h2 className="text-4xl md:text-5xl font-bold">{blogPost?.title}</h2>
-            <div className="mt-4 text-lg" dangerouslySetInnerHTML={{ __html: blogPost?.description }}></div>
+            <div className="mt-4 text-lg text-white" dangerouslySetInnerHTML={{ __html: blogPost?.description }}></div>
             <div className="py-14">
               <Link
                 to={`/post/${blogPost?.slug}`}

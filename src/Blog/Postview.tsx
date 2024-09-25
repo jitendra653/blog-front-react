@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom';
-import { formatDate } from './lib/utils';
-import { useAppDispatch } from './hooks/useAppDispatch';
-import { useAppSelector } from './hooks/useAppSelector';
-import { getPostContent } from './store/postSlice';
+import { formatDate } from '../lib/utils';
+import { useAppDispatch } from '../hooks/useAppDispatch';
+import { useAppSelector } from '../hooks/useAppSelector';
+import { getPostContent } from '../store/postSlice';
 
 export default function Postview() {
   const { postId }: any = useParams();
